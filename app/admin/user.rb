@@ -23,5 +23,5 @@ ActiveAdmin.register User do
   end
 
   preserve_default_filters!
-  filter :reviews, as: :select, collection: Review.all.map(&:content)
+  filter :reviews, as: :select, collection: Review.all.map{|review| [review.content, review.id] }
 end
