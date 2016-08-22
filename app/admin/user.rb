@@ -21,4 +21,7 @@ ActiveAdmin.register User do
     column :admin
     actions
   end
+
+  preserve_default_filters!
+  filter :reviews, as: :select, collection: Review.all.map(&:content)
 end
